@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /**
  * Libreria para sacar por dispositivos un mensaje y
@@ -15,6 +17,18 @@ public class EntradaSalida {
      * opción de uso de utilizar una ventana en el escritorio para sacar un mensaje
      */
     public static final int SALIDA_WINDOW = 2;
+    /**
+     * String del usuario
+     */
+    public static String STRING_USUARIO;
+    /**
+     * int del usuario
+     */
+    public static  int INT_USUARIO;
+    /**
+     * Scanner que guarda los imputs del usuario
+     */
+    static Scanner guardar = new Scanner(System.in);
 
     private void EntradaSalida(){};
 
@@ -49,10 +63,31 @@ public class EntradaSalida {
 
     /**
      * TODO método para obtener distintos tipos de datos por consola
-     * @param comentario
-     * @return
+     * @param comentario Mensaje a mostrar
+     * @return String del usuario
      */
     public static String entrada(String comentario){
-        return "";
+        try {
+            System.out.println(comentario);
+            STRING_USUARIO = guardar.next();
+        } catch (InputMismatchException exception) {
+            System.out.println("Tipo de dato erroneo, introduzca un String");
+        }
+        return STRING_USUARIO;
+    }
+
+    /**
+     * Método que devuelve el entero que introduce el usuario
+     * @param comentarioInt Mensaje a mostrar
+     * @return Entero del usuario
+     */
+    public static int salida(String comentarioInt) {
+        try {
+            System.out.println(comentarioInt);
+            INT_USUARIO = guardar.nextInt();
+        } catch (InputMismatchException exception) {
+            System.out.println("Tipo de dato erroneo, introduzca un int");
+        }
+        return INT_USUARIO;
     }
 }
