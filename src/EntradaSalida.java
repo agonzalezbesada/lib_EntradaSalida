@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.lang.reflect.Array;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -62,26 +63,30 @@ public class EntradaSalida {
     }
 
     /**
-     * TODO método para obtener distintos tipos de datos por consola
+     * Método que devuelve el String que introduce el usuario y un booleano de confirmación
      * @param comentario Mensaje a mostrar
-     * @return String del usuario
+     * @return Array con el String y la confirmación
      */
-    public static String entrada(String comentario){
+    public static String[] entradaString(String comentario){
+        String[] elArray = new String[2];
         try {
             System.out.println(comentario);
-            STRING_USUARIO = guardar.next();
+            elArray[0] = guardar.next();
         } catch (InputMismatchException exception) {
+            elArray[1] = "False";
             System.out.println("Tipo de dato erroneo, introduzca un String");
         }
-        return STRING_USUARIO;
+        elArray[1] = "True";
+        return elArray;
     }
 
     /**
-     * Método que devuelve el entero que introduce el usuario
+     * Método que devuelve el entero que introduce el usuario y una confirmación
      * @param comentarioInt Mensaje a mostrar
-     * @return Entero del usuario
+     * @param
+     * @return Array con el intr y la confirmación
      */
-    public static int salida(String comentarioInt) {
+    public static int entradaInt(String comentarioInt) {
         try {
             System.out.println(comentarioInt);
             INT_USUARIO = guardar.nextInt();

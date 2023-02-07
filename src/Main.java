@@ -9,7 +9,8 @@ public class Main {
         isOK_ventana = EntradaSalida.salida("Hello world", EntradaSalida.SALIDA_WINDOW);
         if (!isOK_ventana) System.out.println("ERROR VENTANA");
 
-        System.out.println(EntradaSalida.entrada("Introduzca un texto"));
-        System.out.println(EntradaSalida.salida("Introduzca un entero"));
+        EntradaSalida.entradaString("Introduzca un texto");
+
+        EntradaSalida.entradaInt("Introduzca un entero");
     }
 }
