@@ -9,8 +9,15 @@ public class Main {
         isOK_ventana = EntradaSalida.salida("Hello world", EntradaSalida.SALIDA_WINDOW);
         if (!isOK_ventana) System.out.println("ERROR VENTANA");
 
-        EntradaSalida.entradaString("Introduzca un texto");
+        String[] arrayString = EntradaSalida.entradaString("Introduzca un texto");
 
-        EntradaSalida.entradaInt("Introduzca un entero");
+        if (arrayString[1] == "False") {
+            System.out.println("Error");
+        } else {
+            System.out.println(arrayString[0]);
+        }
+
+        int intUsuario = EntradaSalida.entradaInt("Introduzca un entero");
+
     }
 }

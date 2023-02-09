@@ -19,11 +19,11 @@ public class EntradaSalida {
      */
     public static final int SALIDA_WINDOW = 2;
     /**
-     * String del usuario
+     * String del usuario y comprobacion
      */
-    public static String STRING_USUARIO;
+    public static String[] ARRAY_STRING = new String[2];
     /**
-     * int del usuario
+     * int del usuario y comprobacion
      */
     public static  int INT_USUARIO;
     /**
@@ -68,23 +68,21 @@ public class EntradaSalida {
      * @return Array con el String y la confirmación
      */
     public static String[] entradaString(String comentario){
-        String[] elArray = new String[2];
         try {
             System.out.println(comentario);
-            elArray[0] = guardar.next();
+            ARRAY_STRING[0] = guardar.next();
         } catch (InputMismatchException exception) {
-            elArray[1] = "False";
+            ARRAY_STRING[1] = "False";
             System.out.println("Tipo de dato erroneo, introduzca un String");
         }
-        elArray[1] = "True";
-        return elArray;
+        ARRAY_STRING[1] = "True";
+        return ARRAY_STRING;
     }
 
     /**
      * Método que devuelve el entero que introduce el usuario y una confirmación
      * @param comentarioInt Mensaje a mostrar
-     * @param
-     * @return Array con el intr y la confirmación
+     * @return int del usuario
      */
     public static int entradaInt(String comentarioInt) {
         try {
